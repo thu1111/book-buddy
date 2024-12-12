@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <Navigation/>
+      <Navigation setToken={setToken}/>
 
       <div className='headBox'>
         <h1>Library of Wonders </h1> 

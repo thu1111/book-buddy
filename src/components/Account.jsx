@@ -27,37 +27,41 @@ const Account = () => {
     }
 
     return (
-        <>
+        <div className="meContainer">
         {
-            !token && (<p style={{color: "red"}}>Please log in or create an account to continue!</p>)
+            !token && (<p id="accountMessage">Please log in or create an account to continue!</p>)
         }
 
         {
             user.email && (
-                <>
-                    <h3>Welcome {user.firstname}!</h3>
-                    <p>User email: {user.email}</p>
+                <div className="welcomeContainer">
+                    <h1>Welcome {user.firstname}!</h1>
+                    <p>email: {user.email}</p>
                     {
                         user.books.length? <h4>My Books</h4>
                                         : <h4>No Book Checked Out!</h4>
                     }
+                    
+                    <div className="checkedContainer">
                     {
                         user.books && (
                             user.books.map((book)=>{
                                 return (
                                     <div key={book.id} className="checkedBook">
-                                        <h4>{book.title}</h4>
+                                        <h3>{book.title}</h3>
                                         <img src={book.coverimage}/>
-                                        <button onClick={()=>handleReturn(book.id)}>Return</button>
+                                        <p>by: {book.author}</p>
+                                        <button onClick={()=>handleReturn(book.id)} className="checkButtons">Return</button>
                                     </div>
                                 )
                             })
                         )
                     }
-                </>
+                    </div>
+                </div>
             )
         }
-        </>
+        </div>
     );
 }
  

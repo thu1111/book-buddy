@@ -31,8 +31,8 @@ const Login = ({setToken}) => {
     }
 
     return (
-        <>
-            <h3>Login</h3>
+        <div className="formContainer">
+            <h1>Login</h1>
 
             {error && (<p style={{color: "red"}}>{error}</p>)}
 
@@ -48,9 +48,9 @@ const Login = ({setToken}) => {
                     <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                 </label>
 
-                <button type="submit">Log in</button>
+                <button type="submit" className="formButtons">Log in</button>
             </form>
-        </>
+        </div>
     );
 }
 

@@ -52,11 +52,16 @@ body::before {
   gap: 10px;
   margin-top: 60px;
 }
+
 .headBox h1 {
   color: hsl(0, 0%, 100%);
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   text-align: center;
   text-shadow: 3px -1px 30px hsl(0, 60%, 40%);
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 .headBox p {
   color: white;
@@ -81,8 +86,8 @@ body::before {
   border: 2px solid hsl(0, 60%, 40%);
 }
 
-/* Cards for Books */
-.cardsContainer {
+/* Cards for Books, Checked Books */
+.cardsContainer, .checkedContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -90,7 +95,7 @@ body::before {
   padding: 1rem;
 }
 
-.bookCard {
+.bookCard, .checkedBook {
   width: 15rem;
   background: hsla(36, 43%, 66%, 0.85);
   border-radius: 8px;
@@ -105,81 +110,160 @@ body::before {
   align-items: center;
   justify-content: space-between;
 }
-.bookCard:hover {
+.bookCard:hover, .checkedBook:hover {
   transform: scale(1.03);
 }
 
-.bookCard img {
+.bookCard img, .checkedBook img {
   width: 10rem;
   height: auto;
   border-radius: 8px;
   margin-bottom: 0.5rem;
 }
 
-.bookCard h3 {
+.bookCard h3, .checkedBook h3 {
   font-size: 1.5rem;
   margin: 0 0 1rem;
   padding: 5px;
 }
-.bookCard p {
+.bookCard p, .checkedBook p {
   font-weight: bold;
 }
 
-.detailBtn {
+/* Detail buttons */
+.detailButtons{
   background-color: hsl(22, 61%, 25%);
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  bottom: 0px;
 }
-
-.detailBtn:hover {
+.detailButtons:hover{
   background-color: hsl(0, 60%, 40%);
 }
-
 
 
 /* Selected Book */
 .selectedBook {
   margin: 2rem auto;
-  padding: 1rem;
-  max-width: 600px;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
+  padding: 2rem;
+  max-width: 70%;
+  border-radius: 1rem;
 
+  background: hsla(36, 43%, 66%, 0.85);
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px black;
+  text-align: center;
+  text-shadow: 2px 1px 50px white;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+.selectedBook #highlight {
+  display: flex;
+  flex-direction: column;
+  width: 100rem;
+  font-size: 1.2rem;
+}
 .selectedBook img {
   max-width: 100%;
   border-radius: 8px;
+  box-shadow: 1px 1px 5px black;
+}
+#details {
+  font-size: 1.1rem;
 }
 
-.selectedBook button {
+/* Check button, Return Button */
+.checkButtons{
   background-color: #28a745;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
-.selectedBook button:hover {
+.checkButtons:hover{
   background-color: #218838;
 }
 
-/* Checked Out Books */
-.checkedBook {
+
+/* Forms */
+.formContainer {
+  box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.1);
+  max-width: 500px;
+  width: 100%;
+  margin: 4rem auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: hsla(36, 43%, 66%, 0.85);
+  border-radius: 8px;
+
+  text-shadow: 2px 1px 50px white;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
 }
-
-.checkedBook img {
-  width: 50px;
-  height: auto;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 10px 20px ;
+  gap: 3rem;
+}
+form label {
+  font-size: 1.2rem;
+}
+form input {
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  width: 90%;
+  outline: none;
+  font-size: 1rem;
+}
+form input:focus {
+  border: 2px solid hsl(0, 60%, 40%);
+}
+.formButtons{
+  background-color: hsl(22, 61%, 25%);
+  color: white;
+  border: none;
+  padding: 1rem 1rem;
   border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.formButtons:hover{
+  background-color: hsl(0, 60%, 40%);
 }
 
+
+/* me */
+.welcomeContainer {
+  background-color: hsla(0, 0%, 100%, 0.6);
+  background: hsla(36, 43%, 66%, 0.70);
+  padding: 2rem;
+  text-shadow: 2px 1px 10px hsl(0, 0%, 98%);
+  text-align: center;
+  font-weight: bold;
+  color: hsl(0, 0%, 10%)
+}
+.welcomeContainer h4 {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 0px;
+}
+#accountMessage {
+  color: red;
+  text-align: center;
+  margin-top: 4rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: rgba(250, 235, 215, 0.898);
+}

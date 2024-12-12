@@ -44,7 +44,7 @@ const Books = () => {
                         <h3>{book.title}</h3>
                         <img src={book.coverimage} alt="" />
                         <p>by: {book.author}</p>
-                        <button className="detailBtn"
+                        <button className="detailButtons"
                                 onClick={()=>navigate(`/books/${book.id}`)}
                                 > Detail</button>
 

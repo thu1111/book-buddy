@@ -42,18 +42,22 @@ const SingleBook = () => {
         <>
             <div className="selectedBook">
                 {error && (<p style={{color: "red"}}>{error}</p>)}
-                
-                <h3>{book.title}</h3>
-                <p>by: {book.author}</p>
-                <p>{book.description}</p>
-                <img src={book.coverimage} alt="" />
 
-                {!token && (<p>Please Login or Register to checkout this book</p>)}
+                <div id="highlight">
+                    <h3>{book.title}</h3>
+                    <img src={book.coverimage} alt="" />    
+                    <p>by: {book.author}</p>
+                </div>
 
-                {token && (
-                    book.available? <button onClick={()=>handleCheckout()}>Check out</button>
-                                : <p>This book is currently unavailable to check out.</p>
-                )}
+                <div >
+                    <p id="details">{book.description}</p>
+                    {!token && (<p style={{color: "red"}}>Please Login or Register to checkout this book</p>)}
+
+                    {token && (
+                        book.available? <button onClick={()=>handleCheckout()} className="checkButtons">Check out</button>
+                                    : <p>This book is currently unavailable to check out.</p>
+                    )}
+                </div>
             </div>
         </>
      );

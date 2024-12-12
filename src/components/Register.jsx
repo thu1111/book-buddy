@@ -36,8 +36,8 @@ const Register = ({setToken}) => {
   }
 
   return (
-    <>
-      <h3>Register</h3>
+    <div className="formContainer">
+      <h1>Register</h1>
 
       {error && (<p style={{color: "red"}}>{error}</p>)}
 
@@ -78,9 +78,9 @@ const Register = ({setToken}) => {
           />
         </label>
 
-        <button type="submit">Register</button>
+        <button type="submit" className="formButtons">Register</button>
       </form>
-    </>
+    </div>
   );
 };
 
