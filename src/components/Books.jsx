@@ -42,7 +42,7 @@ const Books = () => {
                 return (
                     <div key={book.id} className="bookCard">
                         <h3>{book.title}</h3>
-                        <img src={book.coverimage} alt="" />
+                        <img src={book.coverimage} alt="book cover image" />
                         <p>by: {book.author}</p>
                         <button className="detailButtons"
                                 onClick={()=>navigate(`/books/${book.id}`)}

@@ -45,7 +45,7 @@ const SingleBook = () => {
 
                 <div id="highlight">
                     <h3>{book.title}</h3>
-                    <img src={book.coverimage} alt="" />    
+                    <img src={book.coverimage} alt="book cover image"/>    
                     <p>by: {book.author}</p>
                 </div>
 

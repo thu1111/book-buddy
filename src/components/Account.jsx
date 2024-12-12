@@ -20,7 +20,6 @@ const Account = () => {
         getUser();
     }, []);
 
-
     const handleReturn = async (id) => {
         const response = await returnBook(id, token);
         getUser(); /*trying to re-render*/
@@ -49,7 +48,7 @@ const Account = () => {
                                 return (
                                     <div key={book.id} className="checkedBook">
                                         <h3>{book.title}</h3>
-                                        <img src={book.coverimage}/>
+                                        <img src={book.coverimage} alt="book cover image"/>
                                         <p>by: {book.author}</p>
                                         <button onClick={()=>handleReturn(book.id)} className="checkButtons">Return</button>
                                     </div>
