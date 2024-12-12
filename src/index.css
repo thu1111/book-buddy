@@ -1,13 +1,185 @@
 body {
-  font-family: Georgia, serif;
-  background-color: #f8f8f8;
+  font-family: 'Arial', sans-serif;
+  color: hsl(0, 0%, 10%);
   margin: 0;
   padding: 0;
+  position: relative;
+  min-height: 100vh;
 }
 
-#logo-image {
-  width: 30px;
-  margin-right: 10px;
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/library_of_wonders.jpg);
+    background-size:cover;
+    background-position: center;
+    opacity: 0.9;
+    z-index: -100;
 }
 
-/* Add your own custom styles here */
+/* Nav */
+.navBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: hsl(0, 0%, 10%);
+  display: flex;
+  gap: 20px;
+  z-index: 100;
+}
+
+.navBar a {
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.navBar a:hover {
+  text-decoration: underline;
+  background-color: hsl(0, 0%, 20%);
+  height: 100%;
+}
+
+/* Heading */
+.headBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+}
+.headBox h1 {
+  color: hsl(0, 0%, 100%);
+  font-size: 2.2rem;
+  text-align: center;
+  text-shadow: 3px -1px 30px hsl(0, 60%, 40%);
+}
+.headBox p {
+  color: white;
+  text-align: center;
+}
+
+/* Search Box */
+.searchBox {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+}
+.searchBox input {
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  min-width: 20rem;
+  outline: none;
+  font-size: 1rem;
+}
+.searchBox input:focus {
+  border: 2px solid hsl(0, 60%, 40%);
+}
+
+/* Cards for Books */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.bookCard {
+  width: 15rem;
+  background: hsla(36, 43%, 66%, 0.85);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 2px 1px 3px black;
+  text-align: center;
+  transition: 0.2s ease;
+  color: hsl(0, 0%, 0%);
+  text-shadow: 2px 1px 50px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.bookCard:hover {
+  transform: scale(1.03);
+}
+
+.bookCard img {
+  width: 10rem;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.bookCard h3 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  padding: 5px;
+}
+.bookCard p {
+  font-weight: bold;
+}
+
+.detailBtn {
+  background-color: hsl(22, 61%, 25%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  bottom: 0px;
+}
+
+.detailBtn:hover {
+  background-color: hsl(0, 60%, 40%);
+}
+
+
+
+/* Selected Book */
+.selectedBook {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 600px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.selectedBook img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.selectedBook button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selectedBook button:hover {
+  background-color: #218838;
+}
+
+/* Checked Out Books */
+.checkedBook {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.checkedBook img {
+  width: 50px;
+  height: auto;
+  border-radius: 4px;
+}
+
