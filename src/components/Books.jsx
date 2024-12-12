@@ -14,6 +14,7 @@ const Books = () => {
     useEffect(() => {
         async function getBooks() {
             const response = await fetchAllBooks();
+            
             if (response) {
                 setBooks(response.books);
             } else {
@@ -22,7 +23,7 @@ const Books = () => {
         }
         getBooks();
     }, []);
-
+                                            
     const booksToDisplay = searchParam?
     books.filter((book) => book.title.toLowerCase().includes(searchParam.trim()))
     : books;
@@ -47,7 +48,6 @@ const Books = () => {
                         <button className="detailButtons"
                                 onClick={()=>navigate(`/books/${book.id}`)}
                                 > Detail</button>
-
                     </div>
                 )
             })}
@@ -56,3 +56,4 @@ const Books = () => {
 }
  
 export default Books;
+

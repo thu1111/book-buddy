@@ -1,6 +1,5 @@
 const BASE_API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api"
 
-
 export async function fetchAllBooks() {
     try {
         const response = await fetch (`${BASE_API}/books`);
@@ -79,7 +78,6 @@ export async function fetchCheckout(id, token) {
     }
 }
 
-
 export async function returnBook(id, token) {
     try {
         const response = await fetch (`${BASE_API}/reservations/${id}`, {
@@ -94,3 +92,4 @@ export async function returnBook(id, token) {
         console.error(error);        
     }
 }
+

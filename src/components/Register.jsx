@@ -15,7 +15,7 @@ const Register = ({setToken}) => {
     e.preventDefault();
 
     const response = await registerUser(firstname, lastname, email, password);
-    console.log("response", response);
+    // console.log("response", response);
 
     if (response && response.token !== undefined) {
       setToken(response.token);                      /*Setting state token*/

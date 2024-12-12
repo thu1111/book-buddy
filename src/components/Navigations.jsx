@@ -8,7 +8,7 @@ const Navigation = ({setToken}) => {
         localStorage.clear();
         setToken(null); /*reset state token*/
     }
-
+    
     return ( 
         <nav className='navBar'>
         <Link to="/">Home</Link>
@@ -34,3 +34,4 @@ const Navigation = ({setToken}) => {
 }
  
 export default Navigation;
+

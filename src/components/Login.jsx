@@ -29,7 +29,7 @@ const Login = ({setToken}) => {
         setEmail("");
         setPassword("");
     }
-
+    
     return (
         <div className="formContainer">
             <h1>Login</h1>
@@ -56,3 +56,4 @@ const Login = ({setToken}) => {
 
  
 export default Login;
+

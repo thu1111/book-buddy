@@ -10,13 +10,13 @@ const Account = () => {
     
     const getUser = async() => {
         const response = await fetchUser(token);       
-
-        if(response) {
+        
+        if(response.email) {
             setUser(response);
         }
     }
-    /*trying to let handleReturn use */
-    useEffect(() => { 
+    /*trying to let handleReturn use getUser fro re-render*/
+    useEffect(() => { /**/
         getUser();
     }, []);
 

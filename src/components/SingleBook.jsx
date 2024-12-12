@@ -25,8 +25,6 @@ const SingleBook = () => {
         getBook();
     }, []);
 
-
-
     const handleCheckout = async () => {
         const response = await fetchCheckout(id, token);
 
@@ -36,8 +34,7 @@ const SingleBook = () => {
             setError("Cannot check out the book!");
         }
     }
-
-
+    
     return (
         <>
             <div className="selectedBook">
@@ -55,7 +52,7 @@ const SingleBook = () => {
 
                     {token && (
                         book.available? <button onClick={()=>handleCheckout()} className="checkButtons">Check out</button>
-                                    : <p>This book is currently unavailable to check out.</p>
+                                    : <p style={{color: "red"}}>This book is currently unavailable to check out.</p>
                     )}
                 </div>
             </div>
@@ -64,3 +61,4 @@ const SingleBook = () => {
 }
  
 export default SingleBook;
+
