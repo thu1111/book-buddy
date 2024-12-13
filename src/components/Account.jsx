@@ -2,7 +2,7 @@
 Fetch the account data from the provided API. 
 You may consider conditionally rendering a message for other users that prompts them to log in or create an account.  */
 import { useState, useEffect } from "react";
-import { fetchUser,returnBook } from "../API";
+import { fetchUser,fetchReturn } from "../API";
 
 const Account = () => {
     const [user, setUser] = useState({});
@@ -21,7 +21,7 @@ const Account = () => {
     }, []);
 
     const handleReturn = async (id) => {
-        const response = await returnBook(id, token);
+        const response = await fetchReturn(id, token);
         getUser(); /*trying to re-render*/
     }
 

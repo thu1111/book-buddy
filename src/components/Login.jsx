@@ -1,7 +1,7 @@
 /* TODO - add your code to create a functional React component that renders a login form */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../API";
+import { fetchLogin } from "../API";
 
 const Login = ({setToken}) => {
     const [email, setEmail] = useState("");
@@ -11,19 +11,16 @@ const Login = ({setToken}) => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-
-        const response = await loginUser(email,password);
+        const response = await fetchLogin(email,password);
 
         if (response && response.token !== undefined) {
             setToken(response.token);                      /*Setting state token*/
             localStorage.setItem("token", response.token); /*Setting local token*/
+            
+            navigate('/users/me');  /*navigate to user page*/
         } else {
             setError("Login fail. Please check your informations and try again!")
             return;
-        }
-
-        if (response.token) { /**/
-            navigate('/users/me');
         }
 
         setEmail("");
@@ -34,10 +31,9 @@ const Login = ({setToken}) => {
         <div className="formContainer">
             <h1>Login</h1>
 
-            {error && (<p style={{color: "red"}}>{error}</p>)}
+            {error && (<p className="errorMsg">{error}</p>)}
 
             <form onSubmit={handleSubmit}>
-
                 <label>
                     Email: {" "}
                     <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>

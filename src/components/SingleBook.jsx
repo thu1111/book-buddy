@@ -36,29 +36,27 @@ const SingleBook = () => {
     }
     
     return (
-        <>
-            <div className="selectedBook">
-                {error && (<p style={{color: "red"}}>{error}</p>)}
+        <div className="selectedBook">
+            {error && (<p className='errorMsg'>{error}</p>)}
 
-                <div id="highlight">
-                    <h3>{book.title}</h3>
-                    <img src={book.coverimage} alt="book cover image"/>    
-                    <p>by: {book.author}</p>
-                </div>
-
-                <div >
-                    <p id="details">{book.description}</p>
-                    {!token && (<p style={{color: "red"}}>Please Login or Register to checkout this book</p>)}
-
-                    {token && (
-                        book.available? <button onClick={()=>handleCheckout()} className="checkButtons">Check out</button>
-                                    : <p style={{color: "red"}}>This book is currently unavailable to check out.</p>
-                    )}
-                </div>
+            <div id="highlight">
+                <h3>{book.title}</h3>
+                <img src={book.coverimage} alt="book cover image"/>    
+                <p>by: {book.author}</p>
             </div>
-        </>
+
+            <div >
+                <p id="details">{book.description}</p>
+
+                {  token ? 
+                    (book.available?
+                    <button onClick={()=>handleCheckout()} className="checkButtons">Check out</button>
+                    :<p className='errorMsg'>This book is currently unavailable to check out.</p>)
+                    :<p className='errorMsg'>Please Login or Register to checkout this book.</p>
+                }
+            </div>
+        </div>
      );
 }
- 
 export default SingleBook;
 

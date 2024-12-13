@@ -36,7 +36,7 @@ const Books = () => {
                         placeholder="Search your book here..."/>
         </div>
 
-        {error && (<p style={{color: "red"}}>{error}</p>)}
+        {error && (<p className="errorMsg">{error}</p>)}
 
         <div className="cardsContainer">
             {booksToDisplay.map((book)=>{

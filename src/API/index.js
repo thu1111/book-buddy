@@ -20,7 +20,7 @@ export async function fetchSingleBook(id) {
     }
 }
 
-export async function registerUser(firstname,lastname,email,password) {
+export async function fetchRegister(firstname,lastname,email,password) {
     try {
         const response = await fetch (`${BASE_API}/users/register`, {
             method: "POST",
@@ -34,7 +34,7 @@ export async function registerUser(firstname,lastname,email,password) {
     }
 }
 
-export async function loginUser(email,password) {
+export async function fetchLogin(email,password) {
     try {
         const response = await fetch (`${BASE_API}/users/login`, {
             method: "POST",
@@ -62,9 +62,9 @@ export async function fetchUser(token) {
     }
 }
 
-export async function fetchCheckout(id, token) {
+export async function fetchCheckout(bookid, token) {
     try {
-        const response = await fetch (`${BASE_API}/books/${id}`, {
+        const response = await fetch (`${BASE_API}/books/${bookid}`, {
             method: "PATCH",
             headers: {"Content-Type":"application/json",
                 "Authorization":`Bearer ${token}`,
@@ -78,9 +78,9 @@ export async function fetchCheckout(id, token) {
     }
 }
 
-export async function returnBook(id, token) {
+export async function fetchReturn(reserveid, token) {
     try {
-        const response = await fetch (`${BASE_API}/reservations/${id}`, {
+        const response = await fetch (`${BASE_API}/reservations/${reserveid}`, {
             method: "DELETE",
             headers: {"Content-Type":"application/json",
                 "Authorization":`Bearer ${token}`,

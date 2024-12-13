@@ -1,7 +1,7 @@
 /* TODO - add your code to create a functional React component that renders a registration form */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registerUser } from "../API";
+import { fetchRegister } from "../API";
 
 const Register = ({setToken}) => {
   const [firstname, setFirstname] = useState("");
@@ -13,20 +13,17 @@ const Register = ({setToken}) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    const response = await registerUser(firstname, lastname, email, password);
+    const response = await fetchRegister(firstname, lastname, email, password);
     // console.log("response", response);
 
     if (response && response.token !== undefined) {
       setToken(response.token);                      /*Setting state token*/
       localStorage.setItem("token", response.token); /*Setting local token*/
+      
+      navigate("/users/me"); /*Navigate to user account*/
     } else {
         setError("Registeration fail. Please check informations and try again!")
         return;
-    }
-
-    if (response.token) { /**/
-      navigate("/users/me");
     }
 
     setFirstname("");
@@ -39,7 +36,7 @@ const Register = ({setToken}) => {
     <div className="formContainer">
       <h1>Register</h1>
 
-      {error && (<p style={{color: "red"}}>{error}</p>)}
+      {error && (<p className="errorMsg">{error}</p>)}
 
       <form onSubmit={handleSubmit}>
         <label>

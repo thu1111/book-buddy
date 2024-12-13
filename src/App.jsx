@@ -5,14 +5,14 @@ import SingleBook from './components/SingleBook';
 import Account from './components/Account';
 import Login from './components/Login';
 import Register from './components/Register';
-import Navigation from './components/Navigations';
+import Navigations from './components/Navigations';
 
 function App() {
   const [token, setToken] = useState(null)
 
   return (
     <>
-      <Navigation setToken={setToken}/>
+      <Navigations setToken={setToken}/>
 
       <div className='headBox'>
         <h1>Library of Wonders </h1> 
